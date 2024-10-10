@@ -5,8 +5,6 @@ class TestTodoCompletion(TestTodoCompletionHelper):
     def test_task_complete_more_than_50_per(self, logger):
         all_todos = self.typi_code_controller.get_all_todos()
         all_users = self.typi_code_controller.get_all_users()
-        print(all_todos[0])
-        print(all_users[0])
         fancode_user_ids = []
         for user_dict in all_users:
             if self.is_user_city_fancode(user_dict):
@@ -18,4 +16,4 @@ class TestTodoCompletion(TestTodoCompletionHelper):
             if todo_completion_percent[user_id] <= 0.5:
                 incomplete_todo_users[user_id] = todo_completion_percent[user_id]*100
         if len(todo_completion_percent) > 0:
-            assert False, logger.info(f"{len(todo_completion_percent)} have less than 50% todos completed. Their ids with completion percentage are: {incomplete_todo_users}.")
+            assert False, logger.info(f"{len(incomplete_todo_users)} user(s) have less than 50% todos completed. Their ids with completion percentage are: {incomplete_todo_users}.")
