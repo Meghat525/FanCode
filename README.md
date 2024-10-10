@@ -35,14 +35,14 @@ cachedir: .pytest_cache
 rootdir: C:\Users\User\PycharmProjects\FanCode
 collected 1 item                                                                                                                                   
 
-fancode_tests/test_todo_completion/test_todo_completion.py::TestTodoCompletion::test_task_complete_more_than_50_per 2024-10-10 23:04:49,668 - INFO - User ids of User that belongs to the city FanCode: [1, 5, 10]
-2024-10-10 23:04:49,668 - INFO - 2 user(s) have less than 50% todos completed. Their ids with completion percentage are: {5: 33.33333333333333, 10: 50.0}.
+fancode_tests/test_todo_completion/test_todo_completion.py::TestTodoCompletion::test_task_complete_more_than_50_per 2024-10-10 23:10:03,993 - INFO - User ids of User that belongs to the city FanCode: [1, 5, 10]
+2024-10-10 23:10:03,993 - INFO - 2 user(s) don't have more than 50% todos completed. Their ids with completion percentage are: {5: 33.33333333333333, 10: 50.0}.
 FAILED
 
 ==================================================================== FAILURES ===================================================================== 
 _____________________________________________ TestTodoCompletion.test_task_complete_more_than_50_per ______________________________________________ 
 
-self = <test_todo_completion.TestTodoCompletion object at 0x000001E2C7E91BB0>, logger = <Logger conftest (INFO)>
+self = <test_todo_completion.TestTodoCompletion object at 0x00000253DE70FDA0>, logger = <Logger conftest (INFO)>
 
     def test_task_complete_more_than_50_per(self, logger):
         all_todos = self.typi_code_controller.get_all_todos()
@@ -58,15 +58,15 @@ self = <test_todo_completion.TestTodoCompletion object at 0x000001E2C7E91BB0>, l
             if todo_completion_percent[user_id] <= 0.5:
                 incomplete_todo_users[user_id] = todo_completion_percent[user_id]*100
         if len(todo_completion_percent) > 0:
->           assert False, logger.info(f"{len(incomplete_todo_users)} user(s) have less than 50% todos completed. Their ids with completion percentage are: {incomplete_todo_users}.")
+>           assert False, logger.info(f"{len(incomplete_todo_users)} user(s) don't have more than 50% todos completed. Their ids with completion percentage are: {incomplete_todo_users}.")
 E           AssertionError: None
 E           assert False
 
 fancode_tests\test_todo_completion\test_todo_completion.py:19: AssertionError
 ---------------------------------------------------------------- Captured log call ---------------------------------------------------------------- 
 INFO     conftest:test_todo_completion.py:12 User ids of User that belongs to the city FanCode: [1, 5, 10]
-INFO     conftest:test_todo_completion.py:19 2 user(s) have less than 50% todos completed. Their ids with completion percentage are: {5: 33.33333333333333, 10: 50.0}.
+INFO     conftest:test_todo_completion.py:19 2 user(s) don't have more than 50% todos completed. Their ids with completion percentage are: {5: 33.33333333333333, 10: 50.0}.
 ============================================================= short test summary info ============================================================= 
 FAILED fancode_tests/test_todo_completion/test_todo_completion.py::TestTodoCompletion::test_task_complete_more_than_50_per - AssertionError: None   
-================================================================ 1 failed in 2.11s ================================================================ 
+================================================================ 1 failed in 1.87s ================================================================  
 ```
