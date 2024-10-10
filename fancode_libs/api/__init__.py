@@ -1,0 +1,1 @@
+from fancode_libs.api.typicode_controller import TypiCodeController
