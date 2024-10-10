@@ -16,4 +16,4 @@ class TestTodoCompletion(TestTodoCompletionHelper):
             if todo_completion_percent[user_id] <= 0.5:
                 incomplete_todo_users[user_id] = todo_completion_percent[user_id]*100
         if len(todo_completion_percent) > 0:
-            assert False, logger.info(f"{len(incomplete_todo_users)} user(s) have less than 50% todos completed. Their ids with completion percentage are: {incomplete_todo_users}.")
+            assert False, logger.info(f"{len(incomplete_todo_users)} user(s) don't have more than 50% todos completed. Their ids with completion percentage are: {incomplete_todo_users}.")
